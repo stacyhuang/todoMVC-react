@@ -2,12 +2,12 @@ var React = require('react');
 
 var Todo = React.createClass({
   propTypes: {
-    completed: React.PropTypes.bool.isRequired,
-    text: React.PropTypes.string.isRequired,
     id: React.PropTypes.number.isRequired,
-    onToggle: React.PropTypes.func.isRequired,
+    text: React.PropTypes.string.isRequired,
+    completed: React.PropTypes.bool.isRequired,
+    onUpdate: React.PropTypes.func.isRequired,
     onDelete: React.PropTypes.func.isRequired,
-    onUpdate: React.PropTypes.func.isRequired
+    onToggle: React.PropTypes.func.isRequired
   },
   getInitialState: function() {
     return {editing: false, text: this.props.text};
@@ -15,7 +15,7 @@ var Todo = React.createClass({
   handleUpdate: function(event) {
     event.preventDefault();
     this.stopEditing();
-    this.props.onUpdate(this.props.id, this.state.text);
+    this.props.onUpdate(this.state.text);
   },
   handleChange: function(event) {
     this.setState({text: event.target.value});
@@ -35,7 +35,7 @@ var Todo = React.createClass({
           <input
             type="checkbox"
             checked={this.props.completed}
-            onChange={this.props.onToggle.bind(null, this.props.id)}
+            onChange={this.props.onToggle}
           />
         </div>
         <form className="col-xs-10" onSubmit={this.handleUpdate}>
@@ -49,7 +49,7 @@ var Todo = React.createClass({
             onChange={this.handleChange}
           />
         </form>
-        <button type="button" className="close col-xs-1" aria-label="Close" onClick={this.props.onDelete.bind(null, this.props.id)}>
+        <button type="button" className="close col-xs-1" aria-label="Close" onClick={this.props.onDelete}>
           <span aria-hidden="true">×</span>
         </button>
       </div>
