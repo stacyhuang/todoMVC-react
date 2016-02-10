@@ -29,7 +29,7 @@
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.ctn-todo-description {
+.ctn-todo-text {
   width: 100%;
   background-color: #fff;
 }
@@ -40,7 +40,7 @@
   box-shadow: none;
 }
 
-.todo.completed .ctn-todo-description{
+.todo.completed .ctn-todo-text{
   text-decoration: line-through;
   color: #ccc;
 }

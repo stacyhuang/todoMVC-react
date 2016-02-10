@@ -1,19 +1,20 @@
 var React = require("react");
-var ReactDOM = require("react-dom");
+var connect = require("react-redux").connect;
+var actions = require("../actions/index.js");
 
 var TodoForm = React.createClass({
   getInitialState: function() {
-    return {description: ""};
+    return {text: ""};
   },
   handleTodoSubmit: function(event) {
     event.preventDefault();
-    var description = this.state.description;
-    var id = Math.random();
-    this.props.onTodoSubmit(id, {description: description, status: "active"});
-    this.setState({description: ""});
+    if (this.state.text.trim()) {
+      this.props.dispatch(actions.addTodo(this.state.text));
+      this.setState({text: ""});
+    }
   },
   handleChange: function(event) {
-    this.setState({description: event.target.value});
+    this.setState({text: event.target.value});
   },
   render: function() {
     return (
@@ -22,12 +23,14 @@ var TodoForm = React.createClass({
           type="text"
           className="form-control"
           placeholder="What needs to be done"
-          value={this.state.description}
+          value={this.state.text}
           onChange={this.handleChange}
         />
       </form>
     );
   }
 });
+
+TodoForm = connect()(TodoForm);
 
 module.exports = TodoForm;
