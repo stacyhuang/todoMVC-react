@@ -10,7 +10,7 @@ var mapStateToProps = function(state, ownProps) {
 
 var mapDispatchToProps = function(dispatch, ownProps) {
   return {
-    onFilter: function() {
+    onClick: function() {
       dispatch(actions.setDisplayFilter(ownProps.filter));
     }
   };
