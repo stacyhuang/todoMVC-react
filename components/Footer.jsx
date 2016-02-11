@@ -1,7 +1,7 @@
 var React = require("react");
 var TodoItemsLeft = require("../containers/TodoItemsLeft.js");
 var FilterLink = require("../containers/FilterLink.js");
-var ClearCompletedTodo = require("../containers/ClearCompletedTodo.js");
+var ClearCompleted = require("../containers/ClearCompleted.js");
 
 var Footer = React.createClass({
   render: function() {
@@ -28,7 +28,7 @@ var Footer = React.createClass({
           </FilterLink>
         </div>
         <div className="col-xs-3">
-          <ClearCompletedTodo />
+          <ClearCompleted />
         </div>
       </div>
     );
