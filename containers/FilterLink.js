@@ -4,7 +4,7 @@ var Link = require("../components/Link.jsx");
 
 var mapStateToProps = function(state, ownProps) {
   return {
-    active: ownProps.fiter === state.displayFilter
+    active: ownProps.filter === state.displayFilter
   };
 };
 
