@@ -2,9 +2,10 @@
   "scripts": {
     "build-js": "./node_modules/.bin/browserify -t [ babelify --presets [ react ] ] index.js -o bundle.js",
     "build": "npm run build-js",
-    "start": "python -m SimpleHTTPServer"
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^4.13.4",
     "object-assign": "^4.0.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
