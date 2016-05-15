@@ -2,7 +2,8 @@
   "scripts": {
     "build-js": "./node_modules/.bin/browserify -t [ babelify --presets [ react ] ] index.js -o bundle.js",
     "build": "npm run build-js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npm run build-js"
   },
   "dependencies": {
     "express": "^4.13.4",
